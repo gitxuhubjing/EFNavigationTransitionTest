@@ -36,7 +36,7 @@
         [self.view addGestureRecognizer:_panRecognizer];
         self.pushanimator = [PushAnimation new];
         self.popanimator = [PopAnimation new];
-        self.delegate = self;
+        self.delegate = self;//**设置UINavigation的代理
     }
     return self;
 }
@@ -63,6 +63,10 @@
         self.interactionController = nil;
     }
 }
+/**
+ *  这是UINavigationController 的代理实现，在这里调用我们自定义的动画转场过程
+ *
+ */
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
@@ -81,6 +85,13 @@
     return self.interactionController;
 }
 
+
+/**
+ *  下面两个方法与转场无关，只是在转场动画正在进行的时候滑动手势容易导致程序crash,在动画进行的过程中禁用滑动手势
+ *  thank sam from stackoverflow 
+ *  http://stackoverflow.com/questions/22045098/didshowviewcontroller-not-being-called-after-viewdidappear
+ *
+ */
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
