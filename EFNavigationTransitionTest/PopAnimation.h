@@ -11,4 +11,6 @@
 
 @interface PopAnimation : NSObject <UIViewControllerAnimatedTransitioning>
 
+@property(nonatomic,strong)id<UIViewControllerContextTransitioning>transitionContext;
+
 @end
