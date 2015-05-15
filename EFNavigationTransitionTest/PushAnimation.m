@@ -35,7 +35,7 @@
     [containerView addSubview:fromVC.view];
     [containerView addSubview:toVC.view];
     
-    UIBezierPath *maskStartBP = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 100, 100, 60)];
+    UIBezierPath *maskStartBP = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 130, 1, 1)];
     
     CGPoint finalPoint = CGPointMake(100 - 0, 130 - CGRectGetMaxY(toVC.view.bounds));
     CGFloat radius = sqrt((finalPoint.x * finalPoint.x) + (finalPoint.y * finalPoint.y));
